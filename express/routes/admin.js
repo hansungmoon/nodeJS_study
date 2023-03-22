@@ -1,11 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-function testMiddleWare(req, res, next) {
-  console.log('첫번째 미들웨어');
-  next(); // 다음 파라미터로
-}
-
 router.get('/', (req, res) => {
   res.send('admin 이후 url');
 });
@@ -16,6 +11,16 @@ router.get('/products', (req, res) => {
     message : '<h1>태그가 출력 됩니다</h1>',
     online : 'express'
   });
+});
+
+router.get('/products/write', (req, res) => {
+  res.render('admin/write.html');
+  
+});
+
+router.post('/products/write', (req, res) => {
+  res.send(req.body);
+  
 });
 
 module.exports = router
