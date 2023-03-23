@@ -38,7 +38,7 @@ app.use( ( req , res, _ ) => {
 });
 
 // 500
-app.use( (err, req, res,  _ ) => {
+app.use( (req, res,  _ ) => {
     res.status(500).render('common/500.html')
 });
 
